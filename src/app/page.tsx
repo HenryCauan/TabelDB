@@ -1,12 +1,25 @@
 'use client'
 import React, { useEffect, useState } from "react";
 
+interface Usuario {
+  id: number;
+  nome: string;
+  idade: number;
+  email: string;
+  telefone: string;
+}
+
+interface FormUsuario {
+  nome: string;
+  email: string;
+}
+
 const App = () => {
-  const [dados, setDados] = useState([]);
+  const [dados, setDados] = useState<Usuario[]>([]);
   const [carregando, setCarregando] = useState(true);
   const [modalAberto, setModalAberto] = useState(false);
-  const [usuarioSelecionado, setUsuarioSelecionado] = useState(null);
-  const [form, setForm] = useState({ nome: '', email: '' });
+  const [usuarioSelecionado, setUsuarioSelecionado] = useState<Usuario | null>(null);
+  const [form, setForm] = useState<FormUsuario>({ nome: '', email: '' });
 
   useEffect(() => {
     const buscarUsuarios = async () => {
@@ -28,7 +41,7 @@ const App = () => {
     buscarUsuarios();
   }, []);
 
-  const abrirModal = (usuario) => {
+  const abrirModal = (usuario: Usuario) => {
     setUsuarioSelecionado(usuario);
     setForm({ nome: usuario.nome, email: usuario.email });
     setModalAberto(true);
@@ -41,12 +54,12 @@ const App = () => {
 
   const atualizarUsuario = async () => {
     try {
-      await fetch(`/api/usuarios/${usuarioSelecionado.id}`, {
+      await fetch(`/api/usuarios/${usuarioSelecionado?.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       });
-      setDados(dados.map(u => u.id === usuarioSelecionado.id ? { ...u, ...form } : u));
+      setDados(dados.map(u => u.id === usuarioSelecionado?.id ? { ...u, ...form } : u));
       fecharModal();
     } catch (err) {
       alert('Erro ao atualizar usuário');
