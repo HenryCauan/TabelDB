@@ -34,3 +34,37 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+  // const [value, setValue] = useState([
+  //   {
+  //     nome: "Ana Silva",
+  //     idade: 28,
+  //     email: "ana.silva@email.com",
+  //     telefone: "(11) 91234-5678"
+  //   },
+  //   {
+  //     nome: "Bruno Souza",
+  //     idade: 34,
+  //     email: "bruno.souza@email.com",
+  //     telefone: "(21) 99876-5432"
+  //   },
+  //   {
+  //     nome: "Carla Oliveira",
+  //     idade: 22,
+  //     email: "carla.oliveira@email.com",
+  //     telefone: "(31) 98765-4321"
+  //   },
+  //   {
+  //     nome: "Diego Santos",
+  //     idade: 40,
+  //     email: "diego.santos@email.com",
+  //     telefone: "(41) 97654-3210"
+  //   },
+  //   {
+  //     nome: "Eduarda Lima",
+  //     idade: 30,
+  //     email: "eduarda.lima@email.com",
+  //     telefone: "(51) 96543-2109"
+  //   }
+  // ])
